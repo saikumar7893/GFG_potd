@@ -1,0 +1,70 @@
+Find kth element of spiral matrix
+MediumAccuracy: 50.66%Submissions: 31K+Points: 4
+
+--------------------------------------------------------------------------------------------
+class Solution
+{
+    /*You are required to complete this method*/
+    int findK(int A[][], int n, int m, int k)
+    {
+	
+	int top=0;
+	int down=n-1;
+	int left=0;
+	int right=n-1;
+	int dir=0;
+	ArrayList<Integer>al=new ArrayList<>();
+	   while(left<=right && top<=bottom )
+	   {
+	       if(dir==0)
+	       {
+	           for(int i=left;i<=right;i++)
+	           {
+	               al.add(a[top][i]);
+	               
+	           }
+	           dir++;
+	           top++;
+	       }
+	           else if(dir==1)
+	           {
+	               for(int i=top;i<=down;i++)
+	               {
+	                   al.add(a[i][right]);
+	                   
+	               }
+	               dir++;
+	               right--;
+	               
+	           }
+	           else if(dir==2)
+	           {
+	               for(int i=right;i>=left;i++)
+	               {
+	                   al.add(a[down][i]);
+	               }
+	               down--;
+	               dir++;
+	           }
+	           else 
+	           {
+	               for(int i=down;i>=top;i++)
+	               {
+	                   al.add(a[i][left]);
+	               }
+	               left++;
+	               dir++;
+	           }
+	           dir=dir%4;
+	           if(al.size()>k)
+	           break;
+	           
+	       }
+	       return al.get(k-1);
+	       
+	       
+	       
+	   }
+	
+    }
+}
