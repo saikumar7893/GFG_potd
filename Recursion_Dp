@@ -1,0 +1,20 @@
+Power Of Numbers
+------------------------------
+class Solution
+{
+       int m=1000000007; 
+    long power(int N,int R)
+    {
+        //Your code here
+        if(R==1){
+            return N;
+        }
+        long temp = power(N,R/2)%m;
+        long res = (temp*temp)%m;
+        if(R%2==0){
+             return res;
+        }
+        else return (res*N)%m;
+    }
+
+}
