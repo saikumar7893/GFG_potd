@@ -1,0 +1,27 @@
+Find first set bit
+========================
+
+
+class Solution
+{
+    //Function to find position of first set bit in the given number.
+    public static int getFirstSetBit(int n){
+            
+        // Your code hereStr
+        String st=Integer.toBinaryString(n);
+        int count=1;
+        for(int i=st.length()-1;i>=0;i--)
+        {
+            if(st.charAt(i)=='1')
+            {
+                return count;
+            }
+            else
+            {
+                count++;
+            }
+        }
+        return 0;
+            
+    }
+}
